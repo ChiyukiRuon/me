@@ -571,6 +571,10 @@ button {
 }
 
 .foot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
     width: fit-content;
     margin: 28px auto 0;
     padding: 1px 12px;
@@ -579,6 +583,27 @@ button {
     color: var(--hush);
     font-size: 12px;
     letter-spacing: 0.08em;
+}
+
+.foot__icp {
+    color: inherit;
+    text-decoration: underline dotted
+        color-mix(in srgb, var(--hush) 55%, transparent);
+    text-underline-offset: 3px;
+    transition:
+        color 0.2s,
+        text-decoration-color 0.2s;
+}
+
+.foot__icp::before {
+    content: '·';
+    display: inline-block;
+    margin: 0 7px;
+}
+
+.foot__icp:hover {
+    color: var(--accent);
+    text-decoration-color: currentColor;
 }
 
 .toast {
@@ -658,7 +683,8 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .link {
+    .link,
+    .foot__icp {
         transition: none;
     }
 }
