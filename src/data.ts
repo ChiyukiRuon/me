@@ -98,10 +98,11 @@ export const data: KuolieData = {
 
     notes: ['一般都活跃在 QQ 群，二三次不分号。其它的平台可能不怎么发东西。'],
 
-    // 平台：qq · xhs 小红书 · steam · bilibili · netease 网易云音乐 · douyin 抖音
+    // 平台：qq · xhs 小红书 · steam · bilibili · netease 网易云音乐 · douyin 抖音 · x
     // name 用户名、id 号码至少填一个；两个都填时号码用小字显示，点击复制号码
     contacts: [
         { app: 'bilibili', name: '千雪琉音', id: '33908380' },
+        { app: 'x', name: 'ちゆき琉音', id: 'ChiyukiRuon' },
         { app: 'netease', name: '千雪琉音' },
         { app: 'steam', name: '千雪今天玩什么', id: '458096871' },
         { app: 'xhs', name: '千雪琉音', id: 'ChiyukiRuon' },

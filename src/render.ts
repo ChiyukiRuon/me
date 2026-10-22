@@ -206,7 +206,6 @@ ${lace('top')}
   ${flyer(d)}
   <footer class="foot">
     <span>更新于 ${esc(d.updated)}</span>
-    <a class="foot__icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备2021035003号-1</a>
   </footer>
 </main>
 ${lace('bottom')}

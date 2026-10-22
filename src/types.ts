@@ -20,7 +20,7 @@ export interface OshiGroup {
 }
 
 export type ContactApp =
-    'qq' | 'xhs' | 'steam' | 'bilibili' | 'netease' | 'douyin'
+    'qq' | 'xhs' | 'steam' | 'bilibili' | 'netease' | 'douyin' | 'x'
 
 /**
  * name 用户名，id 号码 / UID / 好友代码。

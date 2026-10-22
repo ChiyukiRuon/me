@@ -14,8 +14,7 @@ export default defineConfig({
             transformIndexHtml(html) {
                 const vars: Record<string, string> = {
                     __THEME__: data.theme,
-                    // __TITLE__: esc(`${data.name}的扩列条`),
-                    __TITLE__: esc(`千雪琉音的桃花源`),
+                    __TITLE__: esc(`${data.name}的扩列条`),
                     __DESCRIPTION__: esc(`${data.subName} · ${data.motto}`),
                     __AVATAR__: esc(asset(data.avatar)),
                 }
