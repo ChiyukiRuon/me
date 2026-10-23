@@ -5,6 +5,7 @@ const APPS = Object.keys(PLATFORMS) as ContactApp[]
 
 /**
  * 构建时用环境变量覆盖 data.ts 里的内容：
+ * - TITLE：页面标题，未设置时由 vite.config.ts 使用默认标题
  * - ICP：备案号，未设置或为空时不显示
  * - CONTACTS：JSON 数组，整组替换 contacts；未设置时沿用 data.ts
  */
@@ -12,11 +13,13 @@ export function resolveData(
     data: KuolieData,
     env: Record<string, string | undefined>,
 ): KuolieData {
+    const title = env.TITLE?.trim() || undefined
     const icp = env.ICP?.trim() || undefined
     const contacts = env.CONTACTS?.trim()
 
     return {
         ...data,
+        title,
         icp,
         contacts: contacts ? parseContacts(contacts) : data.contacts,
     }

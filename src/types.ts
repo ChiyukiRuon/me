@@ -20,7 +20,7 @@ export interface OshiGroup {
 }
 
 export type ContactApp =
-    'qq' | 'xhs' | 'steam' | 'bilibili' | 'netease' | 'douyin'
+    'qq' | 'xhs' | 'steam' | 'bilibili' | 'netease' | 'douyin' | 'x'
 
 /**
  * name 用户名，id 号码 / UID / 好友代码。
@@ -45,6 +45,8 @@ export interface KuolieData {
     notes: string[]
     contacts: Contact[]
     updated: string
+    /** 页面标题，由构建时的环境变量 TITLE 提供；不填则为「名字的扩列条」 */
+    title?: string
     /** ICP 备案号，由构建时的环境变量 ICP 提供；不填则页脚不显示 */
     icp?: string
 }

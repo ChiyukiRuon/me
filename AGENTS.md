@@ -6,7 +6,7 @@ This is a static personal profile page built with TypeScript and Vite, without a
 
 - `src/data.ts`: profile content, contacts, and theme settings; start here for content changes.
 - `src/types.ts`, `src/render.ts`, and `src/platforms.ts`: data contracts, HTML rendering, and platform metadata.
-- `src/env.ts`: build-time overrides read by `vite.config.ts`; `ICP` sets the footer registration number, `CONTACTS` (JSON array) replaces `contacts`.
+- `src/env.ts`: build-time overrides read by `vite.config.ts`; `TITLE` sets the page title, `ICP` sets the footer registration number, `CONTACTS` (JSON array) replaces `contacts`.
 - `src/main.ts`: browser entry; binds layout from `masonry.ts` and clipboard interactions from `copy.ts`.
 - `src/style.css`, `src/lace.ts`, and `public/`: styles, decorative graphics, and static assets.
 - `vite.config.ts` and `plugins/`: prerendering, font trimming, and entry script/style inlining.
@@ -47,4 +47,4 @@ PRs should describe purpose, scope, validation, and related issues. Include desk
 
 ## Configuration & Content Safety
 
-Profile data becomes public: never include secrets. Escape interpolated text with `esc()`. Preserve relative asset paths and `base: './'`. Build-time env overrides are read by `vite.config.ts` via `loadEnv`: `ICP` is optional and hides the footer link when unset; `CONTACTS` is parsed and validated as a JSON array.
+Profile data becomes public: never include secrets. Escape interpolated text with `esc()`. Preserve relative asset paths and `base: './'`. Build-time env overrides are read by `vite.config.ts` via `loadEnv`: `TITLE` is optional and falls back to `<name>的扩列条`; `ICP` is optional and hides the footer link when unset; `CONTACTS` is parsed and validated as a JSON array.

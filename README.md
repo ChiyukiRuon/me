@@ -13,29 +13,32 @@
 
 ## 构建时环境变量
 
-下面两项在构建或启动开发服务器时读取，改完需要重新构建（开发时重启 `npm run dev`）：
+下面三项在构建或启动开发服务器时读取，改完需要重新构建（开发时重启 `npm run dev`）：
 
 | 变量       | 说明                                                                             |
 | ---------- | -------------------------------------------------------------------------------- |
-| `ICP`      | ICP 备案号，例如 `浙ICP备2021035003号-1`；不设置或留空则页脚不显示备案信息       |
+| `TITLE`    | 页面标题；不设置或留空时使用「名字的扩列条」                                     |
+| `ICP`      | ICP 备案号，例如 `京ICP备00000000号-1`；不设置或留空则页脚不显示备案信息         |
 | `CONTACTS` | JSON 数组，整组覆盖 `src/data.ts` 里的 `contacts`；不设置则使用 `data.ts` 的内容 |
 
-`CONTACTS` 的 `app` 可选 `qq` / `xhs` / `steam` / `bilibili` / `netease` / `douyin`，每项的 `name` 和 `id` 至少填一个：
+`CONTACTS` 的 `app` 可选 `qq` / `xhs` / `steam` / `bilibili` / `netease` / `douyin` / `x`，每项的 `name` 和 `id` 至少填一个：
 
 ```bash
-ICP='浙ICP备2021035003号-1' \
-CONTACTS='[{"app":"bilibili","name":"千雪琉音","id":"33908380"},{"app":"qq","id":"123456789"}]' \
+TITLE='我的扩列条' \
+ICP='京ICP备00000000号-1' \
+CONTACTS='[{"app":"bilibili","name":"示例用户名","id":"12345678"}]' \
 npm run build
 ```
 
 也可以写在项目根目录的 `.env` 里（该文件不会提交到仓库，可参考 `.env.example`）：
 
 ```dotenv
-ICP=浙ICP备2021035003号-1
-CONTACTS=[{"app":"bilibili","name":"千雪琉音","id":"33908380"}]
+TITLE=我的扩列条
+ICP=京ICP备00000000号-1
+CONTACTS=[{"app":"bilibili","name":"示例用户名","id":"12345678"}]
 ```
 
-不设置 `ICP` 时页脚只显示更新时间；设置 `CONTACTS=[]` 会隐藏整个社交平台区块。
+不设置 `TITLE` 时标题回退到「名字的扩列条」；不设置 `ICP` 时页脚只显示更新时间；设置 `CONTACTS=[]` 会隐藏整个社交平台区块。
 `CONTACTS` 格式不对时构建会直接报错，并指出是第几项有问题。
 
 ## 运行与打包

@@ -7,7 +7,7 @@ import { trimFontFaces } from './plugins/trim-font-faces'
 
 // base: './' 让打包产物使用相对路径，放到任意静态托管的子目录都能直接打开
 export default defineConfig(({ mode }) => {
-    // ICP、CONTACTS 只在构建（或启动开发服务器）时读取，直接写进预渲染的 HTML
+    // TITLE、ICP、CONTACTS 只在构建（或启动开发服务器）时读取，直接写进预渲染的 HTML
     const env = loadEnv(mode, '.', '')
     const site = resolveData(data, env)
 
@@ -20,8 +20,7 @@ export default defineConfig(({ mode }) => {
                 transformIndexHtml(html) {
                     const vars: Record<string, string> = {
                         __THEME__: site.theme,
-                        // __TITLE__: esc(`${site.name}的扩列条`),
-                        __TITLE__: esc(`千雪琉音的桃花源`),
+                        __TITLE__: esc(site.title ?? `${site.name}的扩列条`),
                         __DESCRIPTION__: esc(`${site.subName} · ${site.motto}`),
                         __AVATAR__: esc(asset(site.avatar)),
                     }
