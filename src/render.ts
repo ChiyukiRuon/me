@@ -196,6 +196,15 @@ function flyer(d: KuolieData): string {
 </section>`
 }
 
+function footer(d: KuolieData): string {
+    const icp = d.icp
+        ? `\n    <a class="foot__icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">${esc(d.icp)}</a>`
+        : ''
+    return `<footer class="foot">
+    <span>更新于 ${esc(d.updated)}</span>${icp}
+  </footer>`
+}
+
 export function renderPage(d: KuolieData): string {
     const cards = [about, fandoms, oshi, ng, notes].map((fn) => fn(d)).join('')
     return `
@@ -204,10 +213,7 @@ ${lace('top')}
   ${hero(d)}
   <div class="board">${cards}</div>
   ${flyer(d)}
-  <footer class="foot">
-    <span>更新于 ${esc(d.updated)}</span>
-    <a class="foot__icp" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">浙ICP备2021035003号-1</a>
-  </footer>
+  ${footer(d)}
 </main>
 ${lace('bottom')}
 <div class="toast" role="status" aria-live="polite"></div>`

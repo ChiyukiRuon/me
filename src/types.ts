@@ -45,4 +45,6 @@ export interface KuolieData {
     notes: string[]
     contacts: Contact[]
     updated: string
+    /** ICP 备案号，由构建时的环境变量 ICP 提供；不填则页脚不显示 */
+    icp?: string
 }
